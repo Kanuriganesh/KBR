@@ -17,24 +17,64 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-16">
+    <div className="min-h-screen bg-[#F7F4EE] pb-20 font-[Inter,sans-serif] text-[#1B2430]">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap');
+      `}</style>
+
       {/* Page Header */}
-      <div className="bg-blue-900 py-16 px-4 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Our Services</h1>
-        <div className="w-24 h-1 bg-yellow-500 mx-auto"></div>
-        <p className="text-blue-100 mt-6 max-w-2xl mx-auto text-lg">
-          Everything your business needs to stay compliant and grow securely.
-        </p>
+      <div className="relative bg-[#0F2A47] py-20 px-6 text-center overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.06] pointer-events-none"
+          style={{
+            backgroundImage:
+              'repeating-linear-gradient(to bottom, transparent, transparent 27px, #ffffff 28px)'
+          }}
+        />
+        <div className="relative">
+          <h1 className="font-[Fraunces,serif] text-4xl md:text-5xl text-white">
+            Our services
+          </h1>
+          <div className="mt-5 flex items-center justify-center gap-3">
+            <span className="h-px w-8 bg-[#C99A3B]" />
+            <span className="text-sm font-mono text-white/50">{services.length} lines</span>
+            <span className="h-px w-8 bg-[#C99A3B]" />
+          </div>
+          <p className="text-white/70 mt-6 max-w-xl mx-auto text-base md:text-lg leading-relaxed">
+            Everything your business needs to stay compliant and grow securely.
+          </p>
+        </div>
       </div>
 
-      {/* Detailed Services Grid */}
-      <div className="max-w-6xl mx-auto px-4 mt-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service) => (
-            <div key={service.id} className="bg-white p-6 border border-gray-200 rounded-lg shadow-sm hover:shadow-lg hover:border-blue-900 transition-all">
-              <div className="text-4xl text-blue-900 mb-4">{service.icon}</div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">{service.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{service.desc}</p>
+      {/* Services ledger */}
+      <div className="max-w-4xl mx-auto px-6 mt-12">
+        <div className="border border-[#0F2A47]/12 divide-y divide-[#0F2A47]/12 bg-white rounded-sm">
+          {services.map((service, i) => (
+            <div
+              key={service.id}
+              className="group flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 px-6 py-6 hover:bg-[#0F2A47]/[0.03] transition-colors"
+            >
+              <div className="flex items-center gap-4 sm:contents">
+                <div className="shrink-0 w-12 h-12 flex items-center justify-center rounded-sm border border-[#0F2A47]/12 bg-[#F7F4EE] text-2xl">
+                  {service.icon}
+                </div>
+                <span className="sm:hidden text-xs font-mono text-[#0F2A47]/35">
+                  SVC-{String(i + 1).padStart(2, '0')}
+                </span>
+              </div>
+
+              <div className="flex-1 min-w-0">
+                <h3 className="font-medium text-lg text-[#1B2430] tracking-tight">
+                  {service.title}
+                </h3>
+                <p className="text-[#1B2430]/60 text-[15px] leading-relaxed mt-1">
+                  {service.desc}
+                </p>
+              </div>
+
+              <span className="hidden sm:inline text-xs font-mono text-[#0F2A47]/35 shrink-0 self-start">
+                SVC-{String(i + 1).padStart(2, '0')}
+              </span>
             </div>
           ))}
         </div>
