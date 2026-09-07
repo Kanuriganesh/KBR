@@ -24,16 +24,16 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20">
 
           {/* Logo Section */}
-          <Link to="/" onClick={closeMenu} className="flex-shrink-0 flex items-center gap-3">
-            <img
-              src="/logo.jpeg"
-              alt="KBR Accountants Logo"
-              className="h-11 w-11 md:h-12 md:w-12 object-cover rounded-sm border border-[#C99A3B]/60"
-            />
-            <span className="hidden sm:block font-[Fraunces,serif] text-xl text-[#0F2A47] tracking-tight">
-              KBR
-            </span>
-          </Link>
+           <Link to="/" onClick={closeMenu} className="flex-shrink-0 flex items-center gap-3">
+              <img
+                src="/logo.jpeg"
+                alt="KBR Accountants Logo"
+                className="h-12 w-12 md:h-14 md:w-14 object-cover rounded-sm border border-[#C99A3B]/60 shrink-0"
+              />
+              <span className="hidden sm:block font-[Fraunces,serif] text-xl text-[#0F2A47] tracking-tight">
+                KBR
+              </span>
+            </Link>
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-1">
